@@ -1,0 +1,12 @@
+name: LightUtils
+version: '${version}'
+main: ink.neokoni.lightutils.lightutils.LightUtils
+folia-supported: true
+api-version: '1.19'
+
+authors: ["Neokoni"]
+website: https://github.com/Craft233/LightUtils
+
+softdepend:
+  - HuskHomes
+  - GSit
