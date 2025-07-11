@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.17"
 }
 
 group = 'ink.neokoni.lightutils'
@@ -11,10 +12,15 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
+    maven {
+        name = "placeholderapi"
+        url = "https://repo.extendedclip.com/releases/"
+    }
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
+    paperweight.foliaDevBundle("1.21.4-R0.1-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.6")
 }
 
 def targetJavaVersion = 21

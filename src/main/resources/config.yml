@@ -1,0 +1,9 @@
+# 定时向所有在线玩家发送消息
+broadcast-msg:
+  # 功能开关
+  enable: false
+  # 两次消息之间的时间间隔，单位为秒
+  interval: 60
+  # 待发送的消息，按顺序依次发送
+  messages:
+    - "<gray>» 加入QQ群聊</gray><color:#eccc68><hover:show_text:'点击复制'><click:copy_to_clipboard:830277457>830277457</click></hover></color><gray>获取最新消息</gray>"
