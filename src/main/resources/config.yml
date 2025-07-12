@@ -7,3 +7,19 @@ broadcast-msg:
   # 待发送的消息，按顺序依次发送
   messages:
     - "<gray>» 加入QQ群聊</gray><color:#eccc68><hover:show_text:'点击复制'><click:copy_to_clipboard:830277457>830277457</click></hover></color><gray>获取最新消息</gray>"
+
+# 虚假种子信息
+fake-seed:
+  # 功能开关
+  enable: false
+  # 假种子生成类型, 都不符合则返回真种子
+  # FIXED: 固定种子类型，需要手动输入
+  # RANDOM: 随机种子类型，仅在插件加载配置文件时会生成
+  fake-type: FIXED
+  # 虚假的种子码
+  seed: "2023080402333333"
+  # 返回真种子码需要的权限
+  unlock-real-perms: "lightutils.realseed"
+  # 随机生成的种子码长度
+  # 具体长度=1+设置的值
+  length: 15

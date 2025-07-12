@@ -2,7 +2,6 @@ package ink.neokoni.lightutils.lightutils.commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.tree.LiteralCommandNode;
 import ink.neokoni.lightutils.lightutils.LightUtils;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
@@ -19,8 +18,7 @@ public class MainCommand {
                                 new ReloadSubcommand(ctx.getSource().getSender());
                                 return Command.SINGLE_SUCCESS;
                             }));
-            LiteralCommandNode<CommandSourceStack> buildCommand = command.build();
-            commands.registrar().register(buildCommand);
+            commands.registrar().register(command.build());
         });
     }
 }

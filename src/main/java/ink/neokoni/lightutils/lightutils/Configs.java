@@ -1,6 +1,7 @@
 package ink.neokoni.lightutils.lightutils;
 
 import ink.neokoni.lightutils.lightutils.tasks.FixedRateBroadcastMsgTask;
+import ink.neokoni.lightutils.lightutils.utils.SeedUtils;
 import ink.neokoni.lightutils.lightutils.utils.TextUtils;
 import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import org.bukkit.Bukkit;
@@ -56,6 +57,8 @@ public class Configs {
     public void reloadConfigLogic(){
         config = loadConfig("config");
         lang = loadConfig("lang");
+
+        new SeedUtils();
     }
 
     public static YamlConfiguration getConfig(String fileName) {

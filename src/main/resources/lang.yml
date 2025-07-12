@@ -1,3 +1,7 @@
 reload: "<color:#70a1ff>已完成配置文件加载"
 reload-stopped-task: "<color:#70a1ff>已停止所有任务"
 reload-started-task: "<color:#70a1ff>已按照配置文件启动任务"
+
+fake-seed:
+  template: "种子：[{seed}]"
+  hover: "单击复制到剪贴板"
