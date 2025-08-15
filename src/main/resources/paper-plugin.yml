@@ -1,6 +1,6 @@
 name: LightUtils
 version: '${version}'
-main: ink.neokoni.lightutils.lightutils.LightUtils
+main: ink.neokoni.lightutils.LightUtils
 folia-supported: true
 api-version: '1.21.4'
 

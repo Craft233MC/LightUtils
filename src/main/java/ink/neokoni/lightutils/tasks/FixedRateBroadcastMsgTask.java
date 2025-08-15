@@ -1,8 +1,8 @@
-package ink.neokoni.lightutils.lightutils.tasks;
+package ink.neokoni.lightutils.tasks;
 
-import ink.neokoni.lightutils.lightutils.Configs;
-import ink.neokoni.lightutils.lightutils.LightUtils;
-import ink.neokoni.lightutils.lightutils.utils.TextUtils;
+import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.LightUtils;
+import ink.neokoni.lightutils.utils.TextUtils;
 import org.bukkit.Bukkit;
 
 import java.util.List;

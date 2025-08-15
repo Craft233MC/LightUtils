@@ -1,6 +1,6 @@
-package ink.neokoni.lightutils.lightutils.papis;
+package ink.neokoni.lightutils.papis;
 
-import ink.neokoni.lightutils.lightutils.LightUtils;
+import ink.neokoni.lightutils.LightUtils;
 import io.papermc.paper.threadedregions.TickRegionScheduler;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.Bukkit;

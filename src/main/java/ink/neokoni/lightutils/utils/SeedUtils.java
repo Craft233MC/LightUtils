@@ -1,6 +1,6 @@
-package ink.neokoni.lightutils.lightutils.utils;
+package ink.neokoni.lightutils.utils;
 
-import ink.neokoni.lightutils.lightutils.Configs;
+import ink.neokoni.lightutils.Configs;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 

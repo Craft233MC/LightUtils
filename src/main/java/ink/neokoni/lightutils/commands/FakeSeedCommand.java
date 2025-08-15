@@ -1,10 +1,10 @@
-package ink.neokoni.lightutils.lightutils.commands;
+package ink.neokoni.lightutils.commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import ink.neokoni.lightutils.lightutils.Configs;
-import ink.neokoni.lightutils.lightutils.LightUtils;
-import ink.neokoni.lightutils.lightutils.utils.SeedUtils;
+import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.LightUtils;
+import ink.neokoni.lightutils.utils.SeedUtils;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
