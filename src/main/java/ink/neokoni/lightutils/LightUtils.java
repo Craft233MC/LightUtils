@@ -2,6 +2,7 @@ package ink.neokoni.lightutils;
 
 import ink.neokoni.lightutils.commands.FakeSeedCommand;
 import ink.neokoni.lightutils.commands.MainCommand;
+import ink.neokoni.lightutils.commands.PaperPluginsCommand;
 import ink.neokoni.lightutils.papis.TickInfoPAPI;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,8 +17,11 @@ public final class LightUtils extends JavaPlugin {
         markIsFolia();
 
         new Configs().reloadConfig(null); // init config files
+
+        // init commands
         new MainCommand();
         new FakeSeedCommand();
+        new PaperPluginsCommand();
 
         regPapi();
     }
