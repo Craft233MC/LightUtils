@@ -34,3 +34,10 @@ modify-plugins:
   execute-perms: "lightutils.plugins"
   # 获取真实的插件列表需要的权限
   unlock-real-perms: "lightutils.realplugins"
+
+# 自由视角(观察者)，切换时返回原来位置
+freecam:
+  # 是否启用
+  enable: false
+  # 需要的权限
+  execute-perms: "lightutils.freecam"

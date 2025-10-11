@@ -1,6 +1,7 @@
 package ink.neokoni.lightutils;
 
 import ink.neokoni.lightutils.commands.FakeSeedCommand;
+import ink.neokoni.lightutils.commands.FreeCamCommand;
 import ink.neokoni.lightutils.commands.MainCommand;
 import ink.neokoni.lightutils.commands.PaperPluginsCommand;
 import ink.neokoni.lightutils.papis.TickInfoPAPI;
@@ -22,6 +23,7 @@ public final class LightUtils extends JavaPlugin {
         new MainCommand();
         new FakeSeedCommand();
         new PaperPluginsCommand();
+        new FreeCamCommand();
 
         regPapi();
     }
