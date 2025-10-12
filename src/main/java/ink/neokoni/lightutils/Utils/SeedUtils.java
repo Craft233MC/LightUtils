@@ -1,6 +1,6 @@
 package ink.neokoni.lightutils.Utils;
 
-import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.DataStorage.Configs;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 

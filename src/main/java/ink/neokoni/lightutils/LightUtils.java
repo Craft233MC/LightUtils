@@ -4,6 +4,8 @@ import ink.neokoni.lightutils.Commands.FakeSeedCommand;
 import ink.neokoni.lightutils.Commands.FreeCamCommand;
 import ink.neokoni.lightutils.Commands.MainCommand;
 import ink.neokoni.lightutils.Commands.PaperPluginsCommand;
+import ink.neokoni.lightutils.DataStorage.Configs;
+import ink.neokoni.lightutils.DataStorage.PlayerDatas;
 import ink.neokoni.lightutils.PAPIs.TickInfoPAPI;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,6 +19,7 @@ public final class LightUtils extends JavaPlugin {
         instance = this;
         markIsFolia();
 
+        PlayerDatas.loadPlayerData();
         new Configs().reloadConfig(null); // init config files
 
         // init Commands

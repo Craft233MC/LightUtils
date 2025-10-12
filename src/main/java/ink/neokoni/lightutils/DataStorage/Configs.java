@@ -1,5 +1,6 @@
-package ink.neokoni.lightutils;
+package ink.neokoni.lightutils.DataStorage;
 
+import ink.neokoni.lightutils.LightUtils;
 import ink.neokoni.lightutils.Tasks.FixedRateBroadcastMsgTask;
 import ink.neokoni.lightutils.Utils.SeedUtils;
 import ink.neokoni.lightutils.Utils.TextUtils;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Configs {
-    private static final  LightUtils plugin = LightUtils.getInstance();
+    private static final LightUtils plugin = LightUtils.getInstance();
     private static YamlConfiguration config;
     private static YamlConfiguration lang;
 

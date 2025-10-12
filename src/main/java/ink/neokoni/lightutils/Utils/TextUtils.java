@@ -1,6 +1,6 @@
 package ink.neokoni.lightutils.Utils;
 
-import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.DataStorage.Configs;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 

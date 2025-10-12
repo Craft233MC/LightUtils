@@ -1,6 +1,6 @@
 package ink.neokoni.lightutils.Commands;
 
-import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.DataStorage.Configs;
 import org.bukkit.command.CommandSender;
 
 public class ReloadSubcommand {

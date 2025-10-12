@@ -2,7 +2,7 @@ package ink.neokoni.lightutils.Commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import ink.neokoni.lightutils.Configs;
+import ink.neokoni.lightutils.DataStorage.Configs;
 import ink.neokoni.lightutils.LightUtils;
 import ink.neokoni.lightutils.Utils.SeedUtils;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
