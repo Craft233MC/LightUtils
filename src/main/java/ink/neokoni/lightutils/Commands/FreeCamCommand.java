@@ -15,7 +15,6 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -65,7 +64,7 @@ public class FreeCamCommand {
             PlayerDatas.savePlayerData(playerData);
 
             player.setGameMode(enabled.get(player).getSecond());
-            player.teleport(enabled.get(player).getFirst());
+            player.teleportAsync(enabled.get(player).getFirst());
             enabled.remove(player);
         } else {
             enabled.put(player, new Pair<>(player.getLocation(), player.getGameMode()));
