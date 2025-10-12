@@ -22,16 +22,15 @@ public class FreeCamCommand {
     private final LightUtils plugin = LightUtils.getInstance();
     private static final Map<Player, Pair<Location, GameMode>> enabled = new ConcurrentHashMap<>();
 
-    private final String perms = Configs.getConfig("config").getString("freecam.execute-perms");
-    private final boolean isEnabled = Configs.getConfig("config").getBoolean("freecam.enable");
-    private final int limit = Configs.getConfig("config").getInt("freecam.limit");
-
     public FreeCamCommand() {
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
             LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("freecam")
-                    .requires(source -> source.getSender().hasPermission(perms) && isEnabled)
+                    .requires(source -> source.getSender().hasPermission(
+                            Configs.getConfig("config").getString("freecam.execute-perms")) &&
+                            Configs.getConfig("config").getBoolean("freecam.enable"))
                     .executes(ctx -> {
-                        return switchFreeCam(ctx.getSource().getSender(),limit);
+                        return switchFreeCam(ctx.getSource().getSender(),
+                                Configs.getConfig("config").getInt("freecam.limit"));
                     });
             commands.registrar().register(command.build());
         });
