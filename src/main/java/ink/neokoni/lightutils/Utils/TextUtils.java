@@ -1,4 +1,4 @@
-package ink.neokoni.lightutils.utils;
+package ink.neokoni.lightutils.Utils;
 
 import ink.neokoni.lightutils.Configs;
 import net.kyori.adventure.text.Component;

@@ -1,8 +1,8 @@
 package ink.neokoni.lightutils;
 
-import ink.neokoni.lightutils.tasks.FixedRateBroadcastMsgTask;
-import ink.neokoni.lightutils.utils.SeedUtils;
-import ink.neokoni.lightutils.utils.TextUtils;
+import ink.neokoni.lightutils.Tasks.FixedRateBroadcastMsgTask;
+import ink.neokoni.lightutils.Utils.SeedUtils;
+import ink.neokoni.lightutils.Utils.TextUtils;
 import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;

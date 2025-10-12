@@ -1,10 +1,10 @@
 package ink.neokoni.lightutils;
 
-import ink.neokoni.lightutils.commands.FakeSeedCommand;
-import ink.neokoni.lightutils.commands.FreeCamCommand;
-import ink.neokoni.lightutils.commands.MainCommand;
-import ink.neokoni.lightutils.commands.PaperPluginsCommand;
-import ink.neokoni.lightutils.papis.TickInfoPAPI;
+import ink.neokoni.lightutils.Commands.FakeSeedCommand;
+import ink.neokoni.lightutils.Commands.FreeCamCommand;
+import ink.neokoni.lightutils.Commands.MainCommand;
+import ink.neokoni.lightutils.Commands.PaperPluginsCommand;
+import ink.neokoni.lightutils.PAPIs.TickInfoPAPI;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LightUtils extends JavaPlugin {
@@ -19,7 +19,7 @@ public final class LightUtils extends JavaPlugin {
 
         new Configs().reloadConfig(null); // init config files
 
-        // init commands
+        // init Commands
         new MainCommand();
         new FakeSeedCommand();
         new PaperPluginsCommand();

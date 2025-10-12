@@ -1,4 +1,4 @@
-package ink.neokoni.lightutils.commands;
+package ink.neokoni.lightutils.Commands;
 
 import com.google.common.collect.Lists;
 import com.mojang.brigadier.Command;

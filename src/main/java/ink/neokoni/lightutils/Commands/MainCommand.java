@@ -1,4 +1,4 @@
-package ink.neokoni.lightutils.commands;
+package ink.neokoni.lightutils.Commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;

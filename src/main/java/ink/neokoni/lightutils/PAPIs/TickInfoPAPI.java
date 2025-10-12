@@ -1,4 +1,4 @@
-package ink.neokoni.lightutils.papis;
+package ink.neokoni.lightutils.PAPIs;
 
 import ink.neokoni.lightutils.LightUtils;
 import io.papermc.paper.threadedregions.TickRegionScheduler;

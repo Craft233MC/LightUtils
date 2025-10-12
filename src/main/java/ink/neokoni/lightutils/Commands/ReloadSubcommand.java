@@ -1,4 +1,4 @@
-package ink.neokoni.lightutils.commands;
+package ink.neokoni.lightutils.Commands;
 
 import ink.neokoni.lightutils.Configs;
 import org.bukkit.command.CommandSender;
