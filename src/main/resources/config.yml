@@ -39,5 +39,8 @@ modify-plugins:
 freecam:
   # 是否启用
   enable: false
+  # 移动距离限制，若半径范围内无玩家(包括切换前玩家自己的位置)
+  # 则关闭freecam
+  limit: 200
   # 需要的权限
   execute-perms: "lightutils.freecam"

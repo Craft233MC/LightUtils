@@ -37,6 +37,7 @@ public class PlayerDatas {
     public static void savePlayerData(YamlConfiguration data) {
         File dataFile = new File(pluginFolder, "PlayerData.yml");
         try {
+            playerData = data;
             data.save(dataFile);
         } catch (IOException e) {
             Bukkit.getLogger().log(Level.SEVERE, "FAILED TO SAVE PlayerData FILE!");
