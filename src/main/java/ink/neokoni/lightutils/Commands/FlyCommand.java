@@ -16,7 +16,7 @@ public class FlyCommand {
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
             LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("fly")
                     .requires(source -> hasFlyPerms(source.getSender()) &&
-                            Configs.getConfig("config").getBoolean("fly.enable"))
+                            Configs.getConfigs().getBoolean("fly.enable"))
                     .executes(ctx -> {
                         return switchFly(ctx.getSource().getSender());
                     });
@@ -38,7 +38,7 @@ public class FlyCommand {
     }
 
     private boolean hasFlyPerms(CommandSender sender) {
-        String perms = Configs.getConfig("config").getString("fly.execute-perms");
+        String perms = Configs.getConfigs().getString("fly.execute-perms");
         if (perms == null || perms.isEmpty() || perms.equals("")) {
             return true;
         }

@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 public class FixedRateBroadcastMsgTask {
     private final LightUtils plugin = LightUtils.getInstance();
     public void run() {
-        boolean enabled = Configs.getConfig("config").getBoolean("broadcast-msg.enable");
-        List<String> msgs = Configs.getConfig("config").getStringList("broadcast-msg.messages");
-        int interval = Configs.getConfig("config").getInt("broadcast-msg.interval");
+        boolean enabled = Configs.getConfigs().getBoolean("broadcast-msg.enable");
+        List<String> msgs = Configs.getConfigs().getStringList("broadcast-msg.messages");
+        int interval = Configs.getConfigs().getInt("broadcast-msg.interval");
 
         if (!enabled) {
             return;

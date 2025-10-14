@@ -1,6 +1,6 @@
 package ink.neokoni.lightutils.Utils;
 
-import ink.neokoni.lightutils.DataStorage.Configs;
+import ink.neokoni.lightutils.DataStorage.Languages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 
@@ -18,18 +18,18 @@ public class TextUtils {
     }
 
     public static Component getLang(String str){
-        return colored(Configs.getConfig("lang").getString(str));
+        return colored(Languages.getLanguages().getString(str));
     }
 
     public static Component getLang(String str, String key, String value) {
-        return colored(Configs.getConfig("lang").getString(str), key, value);
+        return colored(Languages.getLanguages().getString(str), key, value);
     }
 
     public static String getLangString(String str){
-        return Configs.getConfig("lang").getString(str);
+        return Languages.getLanguages().getString(str);
     }
 
     public static String getLangString(String str, String key, String value) {
-        return replace(Configs.getConfig("lang").getString(str), key, value);
+        return replace(Languages.getLanguages().getString(str), key, value);
     }
 }

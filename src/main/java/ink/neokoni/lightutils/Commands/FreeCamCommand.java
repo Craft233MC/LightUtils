@@ -26,11 +26,11 @@ public class FreeCamCommand {
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
             LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("freecam")
                     .requires(source -> source.getSender().hasPermission(
-                            Configs.getConfig("config").getString("freecam.execute-perms")) &&
-                            Configs.getConfig("config").getBoolean("freecam.enable"))
+                            Configs.getConfigs().getString("freecam.execute-perms")) &&
+                            Configs.getConfigs().getBoolean("freecam.enable"))
                     .executes(ctx -> {
                         return switchFreeCam(ctx.getSource().getSender(),
-                                Configs.getConfig("config").getInt("freecam.limit"));
+                                Configs.getConfigs().getInt("freecam.limit"));
                     });
             commands.registrar().register(command.build());
         });
@@ -43,13 +43,13 @@ public class FreeCamCommand {
         }
         Player player = (Player) sender;
 
-        Pair savedPairData = new Pair<>(null, null);
+        Pair<Location, GameMode> savedPairData = new Pair<>(null, null);
 
         if (playerData.getObject(player.getUniqueId()+".freecam.location", Location.class) != null &&
                 playerData.getString(player.getUniqueId()+".freecam.gamemode") != null) {
-            savedPairData = new Pair(
-                    playerData.getObject(player.getUniqueId()+".freecam.location", Location.class),
-                    GameMode.valueOf(playerData.getString(player.getUniqueId()+".freecam.gamemode")));
+            Location loc = playerData.getObject(player.getUniqueId()+".freecam.location", Location.class);
+            GameMode mode = GameMode.valueOf(playerData.getString(player.getUniqueId()+".freecam.gamemode"));
+            savedPairData = Pair.of(loc, mode);
         }
 
         if (savedPairData.getFirst() != null && savedPairData.getSecond()!= null) {

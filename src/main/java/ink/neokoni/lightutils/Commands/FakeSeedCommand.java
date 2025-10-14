@@ -2,7 +2,7 @@ package ink.neokoni.lightutils.Commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import ink.neokoni.lightutils.DataStorage.Configs;
+import ink.neokoni.lightutils.DataStorage.Languages;
 import ink.neokoni.lightutils.LightUtils;
 import ink.neokoni.lightutils.Utils.SeedUtils;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
@@ -17,8 +17,8 @@ import org.bukkit.command.CommandSender;
 public class FakeSeedCommand {
     private final LightUtils plugin = LightUtils.getInstance();
 
-    private String template = Configs.getConfig("lang").getString("fake-seed.template");
-    private String hover = Configs.getConfig("lang").getString("fake-seed.hover");
+    private String template = Languages.getLanguages().getString("fake-seed.template");
+    private String hover = Languages.getLanguages().getString("fake-seed.hover");
 
     public FakeSeedCommand() {
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {

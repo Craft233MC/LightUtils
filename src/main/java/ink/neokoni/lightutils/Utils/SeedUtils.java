@@ -13,10 +13,10 @@ public class SeedUtils {
     }
 
     public static String getFakeSeed() {
-        String fakeType = Configs.getConfig("config").getString("fake-seed.fake-type");
+        String fakeType = Configs.getConfigs().getString("fake-seed.fake-type");
 
         switch (fakeType) {
-            case "FIXED" -> {return Configs.getConfig("config").getString("fake-seed.seed");}
+            case "FIXED" -> {return Configs.getConfigs().getString("fake-seed.seed");}
             case "RANDOM" -> {return fakeSeed;}
             default -> {
                 return getRealSeed();
@@ -25,8 +25,8 @@ public class SeedUtils {
     }
 
     public static boolean isReturnFakeSeed(CommandSender sender) {
-        boolean functionEnabled = Configs.getConfig("config").getBoolean("fake-seed.enable");
-        boolean hadPerms = sender.hasPermission(Configs.getConfig("config").getString("fake-seed.unlock-real-perms"));
+        boolean functionEnabled = Configs.getConfigs().getBoolean("fake-seed.enable");
+        boolean hadPerms = sender.hasPermission(Configs.getConfigs().getString("fake-seed.unlock-real-perms"));
 
         if (!functionEnabled) return false;
 
@@ -41,7 +41,7 @@ public class SeedUtils {
             tmpNum = random.nextInt(-10, 10);
         }
         fakeSeed = String.valueOf(tmpNum);
-        int length = Configs.getConfig("config").getInt("fake-seed.length");
+        int length = Configs.getConfigs().getInt("fake-seed.length");
 
         for (int i = 0; i < length; i++) {
             String tmp = String.valueOf(random.nextInt(0, 9));

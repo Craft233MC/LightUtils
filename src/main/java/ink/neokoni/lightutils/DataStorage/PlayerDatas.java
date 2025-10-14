@@ -11,7 +11,7 @@ import java.util.logging.Level;
 public class PlayerDatas {
     private static File pluginFolder = LightUtils.getInstance().getDataFolder();
     private static YamlConfiguration playerData = new YamlConfiguration();
-    public static boolean isDataStorageExist() {
+    public static boolean isPlayerDataExist() {
         return new File(pluginFolder, "PlayerData.yml").exists();
     }
 
@@ -25,7 +25,7 @@ public class PlayerDatas {
     }
 
     public static void loadPlayerData() {
-        if (!isDataStorageExist()) {
+        if (!isPlayerDataExist()) {
             createDataFile();
             return;
         }

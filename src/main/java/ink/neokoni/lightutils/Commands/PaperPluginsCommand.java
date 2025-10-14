@@ -72,10 +72,10 @@ public class PaperPluginsCommand {
     private static final Type JAVA_PLUGIN_PROVIDER_TYPE = new TypeToken<PluginProvider<JavaPlugin>>() {}.getType();
 
     // modify start
-    private boolean enabled = Configs.getConfig("config").getBoolean("modify-plugins.enable");
-    private List<String> hides = Configs.getConfig("config").getStringList("modify-plugins.hides");
-    private String unlockRealPerms = Configs.getConfig("config").getString("modify-plugins.unlock-real-perms");
-    private String executePerms = Configs.getConfig("config").getString("modify-plugins.execute-perms");
+    private boolean enabled = Configs.getConfigs().getBoolean("modify-plugins.enable");
+    private List<String> hides = Configs.getConfigs().getStringList("modify-plugins.hides");
+    private String unlockRealPerms = Configs.getConfigs().getString("modify-plugins.unlock-real-perms");
+    private String executePerms = Configs.getConfigs().getString("modify-plugins.execute-perms");
     private final LightUtils plugin = LightUtils.getInstance();
 
     public PaperPluginsCommand() {
