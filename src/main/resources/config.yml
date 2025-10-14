@@ -44,3 +44,10 @@ freecam:
   limit: 200
   # 需要的权限
   execute-perms: "lightutils.freecam"
+
+# 飞行功能
+fly:
+  # 功能开关
+  enable: false
+  # 所需权限，留空或""为不需
+  execute-perms: "lightutils.fly"

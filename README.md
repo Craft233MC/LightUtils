@@ -9,6 +9,7 @@
 - 虚假种子
 - 隐藏插件列表插件
 - freecam(自由视角？类似mcdr的)
+- 切换允许飞行(/fly)
 
 ## PAPIS
 - %lightutils_mstp%
