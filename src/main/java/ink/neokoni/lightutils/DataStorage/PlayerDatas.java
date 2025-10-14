@@ -34,14 +34,17 @@ public class PlayerDatas {
         playerData = YamlConfiguration.loadConfiguration(dataFile);
     }
 
-    public static void savePlayerData(YamlConfiguration data) {
-        File dataFile = new File(pluginFolder, "PlayerData.yml");
+    public static void writeToFile() {
         try {
-            playerData = data;
-            data.save(dataFile);
+            File dataFile = new File(pluginFolder, "PlayerData.yml");
+            playerData.save(dataFile);
         } catch (IOException e) {
-            Bukkit.getLogger().log(Level.SEVERE, "FAILED TO SAVE PlayerData FILE!");
+            throw new RuntimeException(e);
         }
+    }
+
+    public static void savePlayerData(YamlConfiguration data) {
+        playerData = data;
     }
 
     public static YamlConfiguration getPlayerData() {

@@ -32,6 +32,7 @@ public final class LightUtils extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        PlayerDatas.writeToFile();
     }
 
     private void regPapi() {
