@@ -3,6 +3,7 @@ package ink.neokoni.lightutils;
 import ink.neokoni.lightutils.Commands.*;
 import ink.neokoni.lightutils.DataStorage.PlayerDatas;
 import ink.neokoni.lightutils.PAPIs.TickInfoPAPI;
+import ink.neokoni.lightutils.Tasks.AsyncAutoSaveDataTask;
 import ink.neokoni.lightutils.Utils.DataStorageUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,8 @@ public final class LightUtils extends JavaPlugin {
         new FlyCommand();
 
         regPapi();
+
+        new AsyncAutoSaveDataTask();
     }
 
     @Override
