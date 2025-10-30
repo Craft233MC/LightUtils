@@ -16,27 +16,32 @@ public class FreeCamDetectPlayersDistanceTask {
                     }
                     Location[] locations = new Location[Bukkit.getOnlinePlayers().size()];
                     int i = 0;
-                    Bukkit.getOnlinePlayers().forEach(p -> {
+                    for (Player p : Bukkit.getOnlinePlayers()) {
                         if (p.equals(player)) {
                             locations[i] = location;
                         } else {
                             locations[i] = p.getLocation();
                         }
-                    });
+                        i++;
+                    }
 
+                    boolean outLimit = true;
                     for (Location value : locations) {
                         if (value==null) {
                             continue;
                         }
-                        if (player.getLocation().distance(value) > distance) {
-                            FreeCamCommand.switchFreeCam(player, 0);
-                            scheduledTask.cancel();
+                        if (player.getLocation().distance(value) <= distance) {
+                            outLimit = false;
                         }
+                    }
+                    if (outLimit) {
+                        FreeCamCommand.switchFreeCam(player, 0);
+                        scheduledTask.cancel();
                     }
                 },
                 null,
-                1,
-                1
+                5,
+                5
         );
     }
 }
