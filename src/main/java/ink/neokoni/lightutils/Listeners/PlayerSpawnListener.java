@@ -2,6 +2,7 @@ package ink.neokoni.lightutils.Listeners;
 
 import ink.neokoni.lightutils.DataStorage.Configs;
 import ink.neokoni.lightutils.LightUtils;
+import ink.neokoni.lightutils.Tasks.DetectIsPlayerDeadTask;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -25,7 +26,7 @@ public class PlayerSpawnListener implements Listener {
 
     @EventHandler
     private void onPlayerFirstJoin(PlayerJoinEvent e) {
-        if (isValidSpawnLocation()) {
+        if (!isValidSpawnLocation()) {
             return;
         }
         if (e.getPlayer().hasPlayedBefore()) {
@@ -36,7 +37,7 @@ public class PlayerSpawnListener implements Listener {
 
     @EventHandler
     private void onPlayerRespawn(PlayerRespawnEvent e) {
-        if (isValidSpawnLocation()) {
+        if (!isValidSpawnLocation()) {
             return;
         }
         if (e.getPlayer().getRespawnLocation()!=null) {
@@ -54,26 +55,29 @@ public class PlayerSpawnListener implements Listener {
     private void onPlayerDeath(PlayerDeathEvent e) {
         Player player = e.getPlayer();
         if (LightUtils.isFolia) {
-            Bukkit.getAsyncScheduler().runAtFixedRate(
-                    LightUtils.getInstance(),
-                    task -> {
-                        if (player.isOnline() && !player.isDead()) {
-                            player.teleportAsync(e.getPlayer().getLocation());
-                            teleportPlayerToSpawn(player);
-                            task.cancel();
-                        }
-                        if (!player.isOnline()) {
-                            task.cancel();
-                        }
-                    },
-                    1L,
-                    5L,
-                    TimeUnit.MILLISECONDS
-            );
+            DetectIsPlayerDeadTask.waitingForRespawnTasks.put(player.getUniqueId(),
+                    Bukkit.getAsyncScheduler().runAtFixedRate(
+                            LightUtils.getInstance(),
+                            task -> {
+                                if (player.isOnline() && !player.isDead()) {
+                                    if (isValidSpawnLocation() && player.getRespawnLocation() == null) {
+                                        player.teleportAsync(e.getPlayer().getLocation().clone());
+                                        teleportPlayerToSpawn(player);
+                                    }
+                                    DetectIsPlayerDeadTask.waitingForRespawnTasks.remove(player.getUniqueId()).cancel();
+                                }
+                                if (!player.isOnline()) {
+                                    task.cancel();
+                                }
+                            },
+                            1L,
+                            5L,
+                            TimeUnit.MILLISECONDS
+                    ));
         }
     }
 
-    private void teleportPlayerToSpawn(Player player) {
+    public static void teleportPlayerToSpawn(Player player) {
         try {
             String locationStr = Configs.getConfigs().getString("utils.setworldspawn.location");
             String[] parts = locationStr.split(",");
@@ -87,7 +91,7 @@ public class PlayerSpawnListener implements Listener {
         }
     }
 
-    private boolean isValidSpawnLocation() {
+    public static boolean isValidSpawnLocation() {
         String locationStr = Configs.getConfigs().getString("utils.setworldspawn.location");
         if (locationStr != null && !locationStr.isEmpty()) {
             double x,y,z;
@@ -99,7 +103,7 @@ public class PlayerSpawnListener implements Listener {
                     x = Double.parseDouble(parts[1].trim());
                     y = Double.parseDouble(parts[2].trim());
                     z = Double.parseDouble(parts[3].trim());
-                    return false;
+                    return true;
                 } catch (Exception ex) {
                     return true;
                 }
