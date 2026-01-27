@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -57,6 +58,7 @@ public class PlayerSpawnListener implements Listener {
                     LightUtils.getInstance(),
                     task -> {
                         if (player.isOnline() && !player.isDead()) {
+                            player.teleportAsync(e.getPlayer().getLocation());
                             teleportPlayerToSpawn(player);
                             task.cancel();
                         }
@@ -64,8 +66,8 @@ public class PlayerSpawnListener implements Listener {
                             task.cancel();
                         }
                     },
-                    50L,
-                    50L,
+                    1L,
+                    5L,
                     TimeUnit.MILLISECONDS
             );
         }
