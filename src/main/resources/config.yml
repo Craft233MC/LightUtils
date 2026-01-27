@@ -61,5 +61,5 @@ utils:
     # 坐标 x,y,z (double)
     location: "world,0,100,0"
   cancels:
-    player-join-leave-msg: true
-    entity-farmland-revert: true
+    player-join-leave-msg: false
+    entity-farmland-revert: false
