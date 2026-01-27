@@ -31,4 +31,14 @@ public class Configs {
     public static YamlConfiguration getConfigs() {
         return configs;
     }
+
+    public static YamlConfiguration saveConfigs() {
+        try {
+            File configFile = new File(pluginFolder, "config.yml");
+            configs.save(configFile);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return configs;
+    }
 }

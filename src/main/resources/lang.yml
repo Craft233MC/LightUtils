@@ -5,3 +5,5 @@ reload-started-task: "<color:#70a1ff>已按照配置文件启动任务"
 fake-seed:
   template: "种子：[{seed}]"
   hover: "单击复制到剪贴板"
+
+setworldspawn: "<color:#70a1ff>已将世界出生点设置为{location}"
