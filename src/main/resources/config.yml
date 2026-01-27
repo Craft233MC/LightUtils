@@ -51,3 +51,15 @@ fly:
   enable: false
   # 所需权限，留空或""为不需
   execute-perms: "lightutils.fly"
+
+utils:
+  # 取代原版 setworldspawn 命令
+  # 强制使用坐标参数, 不考虑位置安全性
+  setworldspawn:
+    # 功能开关
+    enable: false
+    # 坐标 x,y,z (double)
+    location: "world,0,100,0"
+  cancels:
+    player-join-leave-msg: true
+    entity-farmland-revert: true

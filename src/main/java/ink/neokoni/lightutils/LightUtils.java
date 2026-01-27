@@ -2,6 +2,7 @@ package ink.neokoni.lightutils;
 
 import ink.neokoni.lightutils.Commands.*;
 import ink.neokoni.lightutils.DataStorage.PlayerDatas;
+import ink.neokoni.lightutils.Listeners.*;
 import ink.neokoni.lightutils.PAPIs.TickInfoPAPI;
 import ink.neokoni.lightutils.Tasks.AsyncAutoSaveDataTask;
 import ink.neokoni.lightutils.Utils.DataStorageUtils;
@@ -17,6 +18,7 @@ public final class LightUtils extends JavaPlugin {
         instance = this;
         markIsFolia();
 
+        // init DataStorage
         DataStorageUtils.initAll();
 
         // init Commands
@@ -25,10 +27,18 @@ public final class LightUtils extends JavaPlugin {
         new PaperPluginsCommand();
         new FreeCamCommand();
         new FlyCommand();
+        new SetWorldSpawnCommand();
 
+        // init external plugins support
         regPapi();
 
+        // start tasks
         new AsyncAutoSaveDataTask();
+
+        // init event listeners
+        new PlayerJoinLeaveListener();
+        new FarmlandRevertListener();
+        new PlayerSpawnListener();
     }
 
     @Override
