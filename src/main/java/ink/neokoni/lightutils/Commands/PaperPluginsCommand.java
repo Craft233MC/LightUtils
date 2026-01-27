@@ -79,11 +79,15 @@ public class PaperPluginsCommand {
     private final LightUtils plugin = LightUtils.getInstance();
 
     public PaperPluginsCommand() {
+        String[] alias = {"plugins", "pl"};
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
-            LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("plugins")
-                    .requires(ctx -> ctx.getSender().hasPermission(executePerms))
-                    .executes(ctx -> execute(ctx));
-            commands.registrar().register(command.build());
+            for (String cmd : alias) {
+                LiteralArgumentBuilder<CommandSourceStack> literal = Commands.literal(cmd);
+                LiteralArgumentBuilder<CommandSourceStack> c = literal
+                        .requires(ctx -> (executePerms.isEmpty() || ctx.getSender().hasPermission(executePerms)))
+                        .executes(ctx -> execute(ctx));
+                commands.registrar().register(c.build());
+            }
         });
     }
     // modify end
