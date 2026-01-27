@@ -13,9 +13,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class DetectIsPlayerDeadTask {
-    public static Map<UUID, ScheduledTask> waitingForRespawnTasks = new ConcurrentHashMap<>() {
-    };
+    public static Map<UUID, ScheduledTask> waitingForRespawnTasks = new ConcurrentHashMap<>();
     public DetectIsPlayerDeadTask() {
+        if (LightUtils.isFolia) return;
         Bukkit.getAsyncScheduler().runAtFixedRate(
                 LightUtils.getInstance(),
                 checkTask -> {
