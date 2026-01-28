@@ -24,14 +24,11 @@ public class PAPICore extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, @NotNull String params) {
-        switch (params) {
-            case "mspt": {
-                return LightUtils.isFolia? TickInfoPAPI.getFoliaMSPT(player) : TickInfoPAPI.getPaperMSPT();
-            }
-            case "tps": {
-                return LightUtils.isFolia? TickInfoPAPI.getFoliaTPS(player) : TickInfoPAPI.getPaperTPS();
-            }
-            default: return null;
-        }
+        return switch (params) {
+            case "mspt" -> LightUtils.isFolia ? TickInfoPAPI.getFoliaMSPT(player) : TickInfoPAPI.getPaperMSPT();
+            case "tps" -> LightUtils.isFolia ? TickInfoPAPI.getFoliaTPS(player) : TickInfoPAPI.getPaperTPS();
+            case "greeting" -> GreetingWordsPAPI.get();
+            default -> null;
+        };
     }
 }
