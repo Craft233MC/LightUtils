@@ -3,7 +3,7 @@ package ink.neokoni.lightutils;
 import ink.neokoni.lightutils.Commands.*;
 import ink.neokoni.lightutils.DataStorage.PlayerDatas;
 import ink.neokoni.lightutils.Listeners.*;
-import ink.neokoni.lightutils.PAPIs.TickInfoPAPI;
+import ink.neokoni.lightutils.PAPIs.PAPICore;
 import ink.neokoni.lightutils.Tasks.AsyncAutoSaveDataTask;
 import ink.neokoni.lightutils.Tasks.DetectIsPlayerDeadTask;
 import ink.neokoni.lightutils.Utils.DataStorageUtils;
@@ -50,7 +50,7 @@ public final class LightUtils extends JavaPlugin {
     }
 
     private void regPapi() {
-        new TickInfoPAPI().register();
+        new PAPICore().register();
 
     }
 
