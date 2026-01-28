@@ -84,7 +84,7 @@ public class PaperPluginsCommand {
             for (String cmd : alias) {
                 LiteralArgumentBuilder<CommandSourceStack> literal = Commands.literal(cmd);
                 LiteralArgumentBuilder<CommandSourceStack> c = literal
-                        .requires(ctx -> (executePerms.isEmpty() || ctx.getSender().hasPermission(executePerms)))
+                        .requires(ctx -> (executePerms==null||executePerms.isEmpty() || ctx.getSender().hasPermission(executePerms)))
                         .executes(ctx -> execute(ctx));
                 commands.registrar().register(c.build());
             }
