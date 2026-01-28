@@ -14,3 +14,4 @@
 ## PAPIS
 - %lightutils_mstp%
 - %lightutils_tps%
+- %lightutils_greeting%
