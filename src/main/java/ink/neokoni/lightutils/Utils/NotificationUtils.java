@@ -16,27 +16,27 @@ import java.util.Set;
 
 public class NotificationUtils {
     public static void showAdvancementAsDesc(Component component, Player player, ItemStack icon, AdvancementType type) {
-        new NotificationUtils().AdvancementCore(component, player, type, icon);
+        AdvancementCore(component, player, type, icon);
     }
 
     public static void showAdvancementCentered(Component component, Player player, ItemStack icon, AdvancementType type) {
         Component centeredComponent = Component.empty().appendNewline()
                 .append(component).appendNewline();
-        new NotificationUtils().AdvancementCore(centeredComponent, player, type, icon);
+        AdvancementCore(centeredComponent, player, type, icon);
     }
 
     public static void showAdvancementDown(Component component, Player player, ItemStack icon, AdvancementType type) {
         Component downComponent = Component.empty().appendNewline()
                 .append(component);
-        new NotificationUtils().AdvancementCore(downComponent, player, type, icon);
+        AdvancementCore(downComponent, player, type, icon);
     }
 
     public static void showAdvancementUp(Component component, Player player, ItemStack icon, AdvancementType type) {
         Component upComponent = component.appendNewline();
-        new NotificationUtils().AdvancementCore(upComponent, player, type, icon);
+        AdvancementCore(upComponent, player, type, icon);
     }
 
-    private void AdvancementCore(Component component, Player player, AdvancementType type, ItemStack icon) {
+    private static void AdvancementCore(Component component, Player player, AdvancementType type, ItemStack icon) {
         AdvancementDisplay advancementDisplay = new AdvancementDisplay(
                 component,
                 Component.empty(),
@@ -44,11 +44,11 @@ public class NotificationUtils {
                 type,
                 null,
                 true,
-                true,
+                false,
                 0,
                 0
         );
-        ResourceLocation resourceLocation = new ResourceLocation("lightutils", "test/advancement");
+        ResourceLocation resourceLocation = new ResourceLocation("lightutils", "notification/advancement");
         List<AdvancementHolder> advancementHolders = Collections.singletonList(
                 new AdvancementHolder(
                         resourceLocation,
@@ -68,14 +68,14 @@ public class NotificationUtils {
                 advancementHolders,
                 Set.of(),
                 advancementProgressMap,
-                false
+                true
         );
         WrapperPlayServerUpdateAdvancements remove = new WrapperPlayServerUpdateAdvancements(
                 false,
                 Collections.emptyList(),
                 Set.of(resourceLocation),
                 advancementProgressMap,
-                false
+                true
         );
 
         PacketEvents.getAPI().getPlayerManager().sendPacket(player, show);
