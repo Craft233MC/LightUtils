@@ -7,6 +7,7 @@ import ink.neokoni.lightutils.Listeners.*;
 import ink.neokoni.lightutils.PAPIs.PAPICore;
 import ink.neokoni.lightutils.Tasks.AsyncAutoSaveDataTask;
 import ink.neokoni.lightutils.Tasks.DetectIsPlayerDeadTask;
+import ink.neokoni.lightutils.Utils.BungeeCardChannelUtils;
 import ink.neokoni.lightutils.Utils.DataStorageUtils;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -50,6 +51,9 @@ public final class LightUtils extends JavaPlugin {
         new PlayerJoinLeaveListener();
         new FarmlandRevertListener();
         new PlayerSpawnListener();
+
+        // init functions
+        new BungeeCardChannelUtils();
     }
 
     @Override
