@@ -9,10 +9,16 @@ website: https://github.com/Craft233/LightUtils
 
 dependencies:
   server:
+    # Hard dependencies
     PlaceholderAPI:
       load: BEFORE
       required: true
       join-classpath: true
+    packetevents:
+        load: BEFORE
+        required: true
+        join-classpath: true
+    # Soft dependencies
     ProtocolLib:
       load: BEFORE
       required: false
