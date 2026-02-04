@@ -30,6 +30,11 @@ public class FreeCamDetectPlayersDistanceTask {
                         if (value==null) {
                             continue;
                         }
+
+                        if (player.getWorld() != value.getWorld()) {
+                            continue;
+                        }
+
                         if (player.getLocation().distance(value) <= distance) {
                             outLimit = false;
                         }
