@@ -55,7 +55,7 @@ public class PlayerSpawnListener implements Listener {
         Player player = e.getPlayer();
         if (LightUtils.isFolia) {
             DetectIsPlayerDeadTask.waitingForRespawnTasks.put(player.getUniqueId(),
-                    Bukkit.getAsyncScheduler().runAtFixedRate(
+                    player.getScheduler().runAtFixedRate(
                             LightUtils.getInstance(),
                             task -> {
                                 if (player.isOnline() && !player.isDead()) {
@@ -69,9 +69,9 @@ public class PlayerSpawnListener implements Listener {
                                     task.cancel();
                                 }
                             },
+                            null,
                             1L,
-                            5L,
-                            TimeUnit.MILLISECONDS
+                            5L
                     ));
         }
     }

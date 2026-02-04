@@ -23,7 +23,7 @@ public class DetectIsPlayerDeadTask {
                         if (player.isDead() && !waitingForRespawnTasks.containsKey(player.getUniqueId())) {
                             Location deathLocation = player.getLocation().clone();
                             waitingForRespawnTasks.put(player.getUniqueId(),
-                                    Bukkit.getAsyncScheduler().runAtFixedRate(
+                                    player.getScheduler().runAtFixedRate(
                                             LightUtils.getInstance(),
                                             task -> {
                                                 if (player.isOnline() && !player.isDead()) {
@@ -39,7 +39,7 @@ public class DetectIsPlayerDeadTask {
                                                     waitingForRespawnTasks.remove(player.getUniqueId()).cancel();
                                                 }
                                             }
-                                            , 1L, 5L, TimeUnit.MILLISECONDS));
+                                            ,null, 1L, 5L));
                         }
                     });
 
