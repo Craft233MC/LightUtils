@@ -15,7 +15,7 @@ public class DataStorageUtils {
     public static void loadDataOnly() {
         Configs.loadConfig();
         Languages.loadLanguage();
-        PlayerDatas.isPlayerDataExist();
+        PlayerDatas.loadPlayerData();
     }
     public static void initAll() {
         loadDataOnly();
