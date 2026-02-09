@@ -17,9 +17,6 @@ import org.bukkit.command.CommandSender;
 public class FakeSeedCommand {
     private final LightUtils plugin = LightUtils.getInstance();
 
-    private String template = Languages.getLanguages().getString("fake-seed.template");
-    private String hover = Languages.getLanguages().getString("fake-seed.hover");
-
     public FakeSeedCommand() {
         plugin.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
             LiteralArgumentBuilder<CommandSourceStack> command = Commands.literal("seed")
@@ -43,6 +40,8 @@ public class FakeSeedCommand {
     }
 
     private Component getSeedMsg(String seed){
+        String template = Languages.getLanguages().getString("fake-seed.template");
+        String hover = Languages.getLanguages().getString("fake-seed.hover");
         ComponentLike seedComponent = Component.text(seed)
                 .color(NamedTextColor.GREEN)
                 .hoverEvent(Component.text(hover));
