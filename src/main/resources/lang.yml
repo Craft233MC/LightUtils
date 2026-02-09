@@ -19,3 +19,6 @@ greetings:
 
 server:
   teleporting: "正在连接到服务器{server}..."
+
+freecam:
+  cannot-create-home: "<color:#70a1ff>无法在使用自由视角时创建家"

@@ -52,6 +52,7 @@ public final class LightUtils extends JavaPlugin {
         new FarmlandRevertListener();
         new PlayerSpawnListener();
         new PlayerDoneAdvancementWhenFreeCamListener();
+        new CreateHomeWhenFreeCamListener();
 
         // init functions
         new BungeeCardChannelUtils();
