@@ -56,6 +56,9 @@ public final class LightUtils extends JavaPlugin {
 
         // init functions
         new BungeeCardChannelUtils();
+
+        // reinit fix some bug
+        DataStorageUtils.loadDataOnly();
     }
 
     @Override

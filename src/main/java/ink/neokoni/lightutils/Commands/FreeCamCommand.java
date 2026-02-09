@@ -82,7 +82,8 @@ public class FreeCamCommand {
             player.teleportAsync(enabled.get(player).getFirst());
             enabled.remove(player);
         } else {
-            enabled.put(player, new Pair<>(player.getLocation().clone(), player.getGameMode()));
+            Location originalLocation = player.getLocation().clone();
+            enabled.put(player, new Pair<>(originalLocation, player.getGameMode()));
             playerData.set(player.getUniqueId()+".freecam.gamemode", player.getGameMode().toString());
             playerData.set(player.getUniqueId()+".freecam.location", player.getLocation());
 
@@ -92,7 +93,7 @@ public class FreeCamCommand {
             player.setGameMode(GameMode.SPECTATOR);
 
             if (limit > 0) {
-                new FreeCamDetectPlayersDistanceTask(player, player.getLocation().clone(), limit);
+                new FreeCamDetectPlayersDistanceTask(player, originalLocation, limit);
             }
 
         }

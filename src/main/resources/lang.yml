@@ -21,4 +21,4 @@ server:
   teleporting: "正在连接到服务器{server}..."
 
 freecam:
-  cannot-create-home: "无法在使用自由视角时创建家"
+  cannot-create-home: "无法在使用自由视角时创建家!"
