@@ -82,7 +82,7 @@ public class FreeCamCommand {
             player.teleportAsync(enabled.get(player).getFirst());
             enabled.remove(player);
         } else {
-            enabled.put(player, new Pair<>(player.getLocation(), player.getGameMode()));
+            enabled.put(player, new Pair<>(player.getLocation().clone(), player.getGameMode()));
             playerData.set(player.getUniqueId()+".freecam.gamemode", player.getGameMode().toString());
             playerData.set(player.getUniqueId()+".freecam.location", player.getLocation());
 

@@ -7,6 +7,7 @@ import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import net.william278.huskhomes.event.HomeCreateEvent;
 import net.william278.huskhomes.position.Position;
 import net.william278.huskhomes.position.World;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,7 +25,11 @@ public class CreateHomeWhenFreeCamListener implements Listener {
 
     @EventHandler
     private void onCreateHome(HomeCreateEvent event) {
-        if (event.getCreator() instanceof Player player) {
+        if (event.getCreator().hasPermission("minecraft.admin")) {
+            return;
+        }
+        Player player = Bukkit.getPlayerExact(event.getOwner().getName());
+        if (player != null) {
             if(!FreeCamCommand.getEnabledMap().containsKey(player)) {
                 return;
             }
@@ -33,7 +38,7 @@ public class CreateHomeWhenFreeCamListener implements Listener {
             pos.setX(loc.x());pos.setY(loc.y());pos.setX(loc.z());
             pos.setWorld(World.from(loc.getWorld().getName(), loc.getWorld().getUID()));
             event.setPosition(pos);
-            event.setName(PlainTextComponentSerializer.plainText().serialize(TextUtils.getLang("freecam.cannot-create-home")));
+            event.setName(TextUtils.getLangString("freecam.cannot-create-home"));
         }
     }
 }
